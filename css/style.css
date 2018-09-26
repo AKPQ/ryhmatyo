@@ -1,0 +1,142 @@
+
+html, body{
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+#header{
+  background-color: #f1f1f1;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+.oikeakulma{
+  background-color: #CCC;
+  float: right;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  display: inline-block;
+
+}
+.keski{
+  background-color: #CCC;
+  text-align: center;
+  width: 500px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  display: inline-block;
+
+
+}
+.vasenkulma{
+  background-color: #CCC;
+  float: left;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  display: inline-block;
+
+}
+.logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+#menu{
+  background-color: #f1f1f1;
+  float: left;
+  width:210px;
+  height: 250px;
+  font-size: 20px;
+  margin-top: 20px;
+  padding: 5px;
+  border-radius: 10px;
+}
+#menu ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #CCC;
+  border-radius: 10px;
+}
+
+#menu li a{
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+#menu li a:hover{
+  background-color: #555;
+  color: white;
+  border-radius: 10px;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+#content{
+  margin-top: 20px;
+  margin-left: 250px;
+  width:50%;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  border: solid 1px #CCC;
+}
+.content_ylin{
+align: center;
+}
+.nayta_paneeli{
+  text-align: center;
+  background-color: #CCC;
+  padding: 10px;
+  margin: 2px;
+  border-radius: 10px;
+  border: solid 1px #f1f1f1;
+}
+#piilo_ikkuna{
+  background-color: white;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 10px;
+  border: solid 1px #CCC;
+}
+#piilo_ikkuna2{
+  background-color: white;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 10px;
+  border: solid 1px #CCC;
+}
+#piilo_ikkuna3{
+  background-color: white;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 10px;
+  border: solid 1px #CCC;
+}
+#piilo_ikkuna{
+  display: none;
+}
+#piilo_ikkuna2{
+  display: none;
+}
+#piilo_ikkuna3{
+  display: none;
+}
+table{
+  width: 100%;
+  border-radius: 5px;
+}
+tr:nth-child(even){
+  background-color:#CCC;
+}
+td{
+  border: solid 1px #CCC;
+  padding: 2px;
+  border-radius: 5px;
+}
+#footer{
+
+}
