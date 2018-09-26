@@ -87,6 +87,10 @@ a {
 .content_ylin{
 align: center;
 }
+.otsikko{
+  text-align: center;
+  
+}
 .nayta_paneeli{
   text-align: center;
   background-color: #CCC;
@@ -94,6 +98,7 @@ align: center;
   margin: 2px;
   border-radius: 10px;
   border: solid 1px #f1f1f1;
+  font-size: 20px;
 }
 #piilo_ikkuna{
   background-color: white;
