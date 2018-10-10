@@ -1,40 +1,47 @@
 
-html, body{
+body{
+  max-width: 1200px;
   margin-left: 10px;
   margin-top: 10px;
   margin-right: 10px;
 }
-#header{
+#mainheader{
+
+  text-align: center;
+  height: 80px;
+}
+.headerlogo img{
+  height: 80px;
+  float: left;
+  display: inline-block;
+}
+.header{
   background-color: #f1f1f1;
   padding: 10px 10px 10px 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   text-align: center;
+  height: 60px;
+  margin-left: 80px;
+}
+.vasenkulma{
+  float: left;
+  display: inline-block;
+}
+.keski{
+
+  text-align: center;
+  font-size: 25px;
+  max-width: 700px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
+  display: inline-block;
 }
 .oikeakulma{
   background-color: #CCC;
   float: right;
   padding: 10px 10px 10px 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   display: inline-block;
-
-}
-.keski{
-  background-color: #CCC;
-  text-align: center;
-  width: 500px;
-  padding: 10px 10px 10px 10px;
-  border-radius: 10px;
-  display: inline-block;
-
-
-}
-.vasenkulma{
-  background-color: #CCC;
-  float: left;
-  padding: 10px 10px 10px 10px;
-  border-radius: 10px;
-  display: inline-block;
-
 }
 .logo{
   display: block;
@@ -47,10 +54,9 @@ html, body{
   float: left;
   width:210px;
   height: 250px;
-  font-size: 20px;
   margin-top: 20px;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 #menu ul{
   list-style-type: none;
@@ -58,7 +64,7 @@ html, body{
   padding: 0;
   width: 100%;
   background-color: #CCC;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 #menu li a{
@@ -70,7 +76,7 @@ html, body{
 #menu li a:hover{
   background-color: #555;
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 a {
   color: #000;
@@ -79,9 +85,9 @@ a {
 #content{
   margin-top: 20px;
   margin-left: 250px;
-  width:50%;
+  max-width: 950px;
   padding: 10px 10px 10px 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: solid 1px #CCC;
 }
 .content_ylin{
@@ -89,14 +95,13 @@ align: center;
 }
 .otsikko{
   text-align: center;
-  
 }
+
 .nayta_paneeli{
   text-align: center;
   background-color: #CCC;
-  padding: 10px;
   margin: 2px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: solid 1px #f1f1f1;
   font-size: 20px;
 }
@@ -104,25 +109,25 @@ align: center;
   background-color: white;
   margin-top: 5px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 5px;
   border: solid 1px #CCC;
 }
 #piilo_ikkuna2{
   background-color: white;
   margin-top: 5px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 5px;
   border: solid 1px #CCC;
 }
 #piilo_ikkuna3{
   background-color: white;
   margin-top: 5px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 5px;
   border: solid 1px #CCC;
 }
 #piilo_ikkuna{
-  display: none;
+  display: block;
 }
 #piilo_ikkuna2{
   display: none;
@@ -141,6 +146,31 @@ td{
   border: solid 1px #CCC;
   padding: 2px;
   border-radius: 5px;
+}
+form {
+  border: 3px solid #f1f1f1;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+}
+button:hover {
+    opacity: 0.8;
 }
 #footer{
 

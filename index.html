@@ -8,25 +8,42 @@
     <title>A-K-P-Q</title>
   </head>
   <body>
-    <div id="header">
-      <div class="vasenkulma">
-        <a href="index.html"><b>A-K-P-Q</b></a>      
+    <div id="mainheader">
+      <div class="headerlogo">
+      <!-- <div class="vasenkulma"> -->
+        <a href="index.html">
+          <img src="images/akpq_logo1.jpg" alt="logo">
+        </a>
+      <!-- </div> -->
       </div>
-      <div class="keski">
-        <b>Tervetuloa Älykkkäiden rahastajien seuraan!</b>
+      <div class="header">
+        <div class="keski">
+          <b>Tervetuloa Älykkkäiden rahastajien seuraan!</b>
+        </div>
+        <!-- <div class="oikeakulma">
+          Kirjaudu
+        </div> -->
       </div>
-<div class="oikeakulma">
-  Kirjaudu
-</div>
     </div>
-    <div id="menu">
+    <div id="menu"
+    <form action="action_page.php">
+        <div class="container">
+          <label for="knimi"><b>Käyttäjänimi</b></label>
+          <input type="text" placeholder="Syötä käyttäjänimi" name="knimi" required>
+
+          <label for="salas"><b>Salasana</b></label>
+          <input type="password" placeholder="Syötä salasana" name="ssana" required>
+
+          <button type="submit">Kirjaudu</button>
+        </div>
+
+
+    </form>
       <ul>
-        <li><a onclick="loadXMLDoc('tilit.html')">Tilit</a></li>
-        <li><a onclick="loadXMLDoc('maksut.html')">Maksut</a></li><br>
-        <li><a onclick="loadXMLDoc('kortit.html')">Korttien hallinta</a></li>
-        <li><a onclick="loadXMLDoc('asetukset')">Asetukset</a></li>
+        <li><a href="asiakas_etusivu.html">asiakas</a></li>
       </ul>
     </div>
+
     <div id="content">
       <div class="content_ylin">
 <img class="logo" src="images/akpq_logo1.jpg" alt="logo">

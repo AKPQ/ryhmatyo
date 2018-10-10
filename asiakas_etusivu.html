@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="functions/jsfunctions.js" charset="utf-8"></script>
+
+    <title>A-K-P-Q</title>
+  </head>
+  <body>
+    <div id="mainheader">
+      <div class="headerlogo">
+      <!-- <div class="vasenkulma"> -->
+        <a href="index.html">
+          <img src="images/akpq_logo1.jpg" alt="logo">
+        </a>
+      <!-- </div> -->
+      </div>
+      <div class="header">
+        <div class="keski">
+          <b>AKPQ - Älykkäät rahastajat</b>
+        </div>
+      </div>
+    </div>
+    <div id="menu">
+      <ul>
+        <li><a onclick="loadXMLDoc('tilit.html')">Tilit</a></li>
+        <li><a onclick="loadXMLDoc('maksut.html')">Maksut</a></li><br>
+        <li><a onclick="loadXMLDoc('kortit.html')">Korttien hallinta</a></li>
+        <li><a onclick="loadXMLDoc('asetukset')">Asetukset</a></li>
+        <li><a href="index.html">Kirjaudu ulos</a></li>
+      </ul>
+    </div>
+    <div id="content">
+      <div class="content_ylin">
+        <h2>Tervetuloa asioimaan pankkiimme</h2>
+        <p> Etusivullasi näet tilijesi yhteenvedon. Pääset näkemään tiliesi tarkempia tilitapahtumia klikkaamalla tilin nimeä.
+          Tilisiirtoja tai maksuja pääset suorittamaan Maksut-sivulta. Korttiesi tiedot näet Kortit-sivulta.
+        </p>
+      </div>
+    <div class="nayta_paneeli" onclick="nayta()">
+      <p>Tilit</p>
+    </div>
+    <div id="piilo_ikkuna">
+      <p>Tilien saldot</p>
+      <table>
+        <tr>
+          <th>Nimi</th>
+          <th>Tilinumero</th>
+          <th>Saldo</th>
+          <th>Käytettävissä</th>
+        </tr>
+        <tr>
+          <td>Käyttötili</td>
+          <td>FIxx xxxx xxxx xxxx xx</td>
+          <td>1569658,67</td>
+          <td>1569658,67</td>
+        </tr>
+        <tr>
+          <td>Etutili</td>
+          <td>FIxx xxxx xxxx xxxx xx</td>
+          <td>2269658,67</td>
+          <td>2269658,67</td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <div id="footer">
+    </div>
+<script type="text/javascript">
+function piilota() {
+    document.getElementById("piilo_ikkuna").style.display = "block";
+</script>
+  </body>
+</html>
