@@ -1,7 +1,5 @@
-Kortit
-
 <form action="kortit.php">
-  <table>
+  <table id="kortit">
     <tr>
       <td><label for="Kortti">Kortti:</label></td>
       <td>
@@ -13,8 +11,8 @@ Kortit
       </td>
     </tr>
     <tr>
-      <td><label for="yhdistetty tili">Yhdistetty tili:</label></td>
-      <td><select name="yhdistetty tili" required>
+      <td><label for="yhdistetty_tili">Yhdistetty tili:</label></td>
+      <td><select name="yhdistetty_tili" required>
         <option value="Valitse tili" selected>Valitse tili</option>
         <option value="FI00 0000 0000 0000 01">FI00 0000 0000 0000 01</option>
         <option value="FI00 0000 0000 0000 02">FI00 0000 0000 0000 02</option>
@@ -29,16 +27,16 @@ Kortit
       <td><input type="number" placeholder="Luottomäärä" name="luottomaara"> €</td>
     </tr>
     <tr>
-      <td><label for="salli verkkomaksut kortilla">Salli verkkomaksut kortilla:</label></td>
+      <td><label for="verkkomaksut">Salli verkkomaksut kortilla:</label></td>
       <td><input type="checkbox" name="verkkomaksut" value="1" /> Verkkomaksut</td>
     </tr>
     <tr>
-      <td><label for="verkkomaksujen maara">Verkkomaksujen sallittu määrä/päivä:</label></td>
-      <td><input type="number" placeholder="Verkkomaksujen määrä" name="verkkomaksujen maara"> €</td>
+      <td><label for="verkkomaksujen_maara">Verkkomaksujen sallittu määrä/päivä:</label></td>
+      <td><input type="number" placeholder="Verkkomaksujen_määrä" name="verkkomaksujen maara"> €</td>
     </tr>
     <tr>
-      <td><label for="sulje kortti">Sulje kortti:</label></td>
-      <td><input type="checkbox" name="sulje kortti" value="1"></td>
+      <td><label for="sulje_kortti">Sulje kortti:</label></td>
+      <td><input type="checkbox" name="sulje_kortti" value="1"></td>
     </tr>
   </table>
   <div class="oikeakohdistus">

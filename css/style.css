@@ -37,7 +37,6 @@ body{
   display: inline-block;
 }
 .oikeakulma{
-  background-color: #CCC;
   float: right;
   padding: 10px 10px 10px 10px;
   border-radius: 5px;
@@ -63,7 +62,7 @@ body{
   margin: 0;
   padding: 0;
   width: 100%;
-  background-color: #CCC;
+  background-color: #DDD;
   border-radius: 5px;
 }
 
@@ -99,7 +98,7 @@ align: center;
 
 .nayta_paneeli{
   text-align: center;
-  background-color: #CCC;
+  background-color: #DDD;
   margin: 2px;
   border-radius: 5px;
   border: solid 1px #f1f1f1;
@@ -110,21 +109,21 @@ align: center;
   margin-top: 5px;
   text-align: center;
   border-radius: 5px;
-  border: solid 1px #CCC;
+  border: solid 1px #DDD;
 }
 #piilo_ikkuna2{
   background-color: white;
   margin-top: 5px;
   text-align: center;
   border-radius: 5px;
-  border: solid 1px #CCC;
+  border: solid 1px #DDD;
 }
 #piilo_ikkuna3{
   background-color: white;
   margin-top: 5px;
   text-align: center;
   border-radius: 5px;
-  border: solid 1px #CCC;
+  border: solid 1px #DDD;
 }
 #piilo_ikkuna{
   display: block;
@@ -136,31 +135,50 @@ align: center;
   display: none;
 }
 table{
+  border-collapse: collapse;
   width: 100%;
   border-radius: 5px;
+  border: 1px solid #ddd;
+    padding: 8px;
+}
+th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
 }
 tr:nth-child(even){
-  background-color:#CCC;
+  background-color:#f2f2f2;
+}
+tr{
+  border: solid 1px #CCC;
+}
+tr:hover {
+  background-color: #ddd;
 }
 td{
-  border: solid 1px #CCC;
-  padding: 2px;
-  border-radius: 5px;
+  /* border: solid 1px #CCC; */
+  padding: 4px;
+
 }
 form {
   border: 3px solid #f1f1f1;
 }
 input[type=text], input[type=password] {
     width: 100%;
-    padding: 12px 20px;
+    /* padding: 12px 20px; */
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
     border-radius: 5px;
+    padding: 1px;
+}
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
 }
 button {
-    background-color: #4CAF50;
+    background-color: #555;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -171,6 +189,23 @@ button {
 }
 button:hover {
     opacity: 0.8;
+}
+.cancelbtn {
+    padding: 14px 20px;
+    background-color: #AAA;
+}
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.uusi_as{
+  max-width: 400px;
+  padding: 16px;
 }
 #footer{
 
