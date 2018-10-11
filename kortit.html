@@ -1,1 +1,102 @@
 Kortit
+
+<form action="kortit.php">
+  <table>
+    <tr>
+      <td><label for="Kortti">Kortti:</label></td>
+      <td>
+        <select name="kortti" required>
+          <option value="Valitse kortti" selected>Valitse kortti</option>
+          <option value="Visa Debit">Visa Debit</option>
+          <option value="Visa Credit">Visa Credit</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="yhdistetty tili">Yhdistetty tili:</label></td>
+      <td><select name="yhdistetty tili" required>
+        <option value="Valitse tili" selected>Valitse tili</option>
+        <option value="FI00 0000 0000 0000 01">FI00 0000 0000 0000 01</option>
+        <option value="FI00 0000 0000 0000 02">FI00 0000 0000 0000 02</option>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="maara">Suurin sallittu nostomäärä/päivä:</label></td>
+      <td><input type="number" placeholder="Määrä" name="maara"> €</td>
+    </tr>
+    <tr>
+      <td><label for="luottomaara">Luottomäärä:</label></td>
+      <td><input type="number" placeholder="Luottomäärä" name="luottomaara"> €</td>
+    </tr>
+    <tr>
+      <td><label for="salli verkkomaksut kortilla">Salli verkkomaksut kortilla:</label></td>
+      <td><input type="checkbox" name="verkkomaksut" value="1" /> Verkkomaksut</td>
+    </tr>
+    <tr>
+      <td><label for="verkkomaksujen maara">Verkkomaksujen sallittu määrä/päivä:</label></td>
+      <td><input type="number" placeholder="Verkkomaksujen määrä" name="verkkomaksujen maara"> €</td>
+    </tr>
+    <tr>
+      <td><label for="sulje kortti">Sulje kortti:</label></td>
+      <td><input type="checkbox" name="sulje kortti" value="1"></td>
+    </tr>
+  </table>
+  <div class="oikeakohdistus">
+    <input type="submit" name="" value="Hyväksy">
+  </div>
+
+</form>
+<div class="otsikko">
+<p>Tietoa korttienne korttitapahtumista.</p>
+<p>Voitte avata tai piilottaa haluamanne osion klikkaamalla hiirellä kyseisen palkin päällä.</p>
+</div>
+<div class="nayta_paneeli" onclick="nayta()">
+  <p>Kortti: Visa Depit 1123 xxxx xxxx xxxx</p>
+</div>
+<div id="piilo_ikkuna">
+  <table>
+    <tr>
+      <th>Päivämäärä</th>
+      <th>Tapahtuma</th>
+      <th>Viesti</th>
+      <th>Tililtä</th>
+      <th>Kulut</th>
+    </tr>
+    <tr>
+      <td>2.10.2018 klo 12.05</td>
+      <td>Prisma Raksila</td>
+      <td>Ostos</td>
+      <td>FI69 xxxx xxxx xxxx 18</td>
+      <td>-52,43</td>
+    </tr>
+    <tr>
+      <td>5.10.2018 klo 10.30</td>
+      <td>Alko Raksila</td>
+      <td>Ostos</td>
+      <td>FI69 xxxx xxxx xxxx 18</td>
+      <td>-25,00</td>
+    </tr>
+  </table>
+</div><br>
+<div class="nayta_paneeli" onclick="nayta2()">
+  <p>Kortti: Visa Credit 0021 xxxx xxxx xxxx</p>
+
+</div>
+<div id="piilo_ikkuna2">
+      <table>
+        <tr>
+          <th>Päivämäärä</th>
+          <th>Tapahtuma</th>
+          <th>Viesti</th>
+          <th>Tililtä</th>
+          <th>Kulut</th>
+        </tr>
+        <tr>
+          <td>2.10.2018</td>
+          <td>Prisma Raksila</td>
+          <td>Nosto</td>
+          <td>FI69 xxxx xxxx xxxx 19</td>
+          <td>-80,00</td>
+        </tr>
+      </table>
+</div><br>
