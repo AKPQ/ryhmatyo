@@ -1,1 +1,40 @@
 Maksut
+<form action="maksut.php">
+  <table>
+    <tr>
+      <td><label for="tililta">Tililtä</label></td>
+      <td><select name="tililta" required>
+        <option value="Kayttotili" selected>Käyttötili</option>
+        <option value="saastotili">Säästötili</option>
+        <option value="asptili">ASP-tili</option>
+      </td>
+      <td><label for="saaja">Saaja</label></td>
+      <td><input type="text" placeholder="Saajan nimi" name="saaja"></td required>
+    </tr>
+    <tr>
+      <td><label for="maksupohja">maksupohjan nimi</label></td>
+      <td><select name="maksupohja" required>
+        <option value="Kayttotili" selected>Käyttötili</option>
+        <option value="saastotili">Säästötili</option>
+        <option value="asptili">ASP-tili</option>
+      </td>
+      <td><label for="tilinro">Tilinumero</label></td>
+      <td><input type="text" placeholder="tilinumero" name="tilinro"></td>
+    </tr>
+    <tr>
+      <td><label for="maara">Määrä</label></td>
+      <td><input type="number" placeholder="Määrä" name="maara"></td>
+      <td><label for="viesti">Viesti</label></td>
+      <td><input type="text" placeholder="Viesti" name="viesti"></td>
+    </tr>
+    <tr>
+      <td><label for="erapv">Eräpäivä</label></td>
+      <td><input type="date" name="erapv"></td>
+      <td><label for="viite">Viite</label></td>
+      <td><input type="text" placeholder="Viite" name="viite"></td>
+    </tr>
+  </table>
+
+
+
+</form>
