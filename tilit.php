@@ -6,7 +6,7 @@
   <p>Käyttötili</p>
 </div>
 <div id="piilo_ikkuna">
-  <table>
+  <!-- <table>
     <tr>
       <th>Päivämäärä</th>
       <th>Tilinro.</th>
@@ -28,7 +28,56 @@
       <td>pankkikorttimaksu</td>
       <td>-45,00</td>
     </tr>
-  </table>
+  </table> -->
+  <?php
+  include '/home/avoin/07/c7paja00/public_html/functions/phpfunc.php';
+
+  echo "<table>";
+  echo "<tr>
+  <th>Päivämäärä</th>
+  <th>Tapahtuma</th>
+  <th>Viesti</th>
+  <th>Tili</th>
+  <th>Määrä</th>
+  </tr>";
+
+  class TableRows extends RecursiveIteratorIterator {
+      function __construct($it) {
+          parent::__construct($it, self::LEAVES_ONLY);
+      }
+
+      function current() {
+          return "<td>" . parent::current(). "</td>";
+      }
+
+      function beginChildren() {
+          echo "<tr>";
+      }
+
+      function endChildren() {
+          echo "</tr>" . "\n";
+      }
+  }
+
+
+  try {
+      $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+      $stmt = $conn->prepare("SELECT pvm, tapahtuma, viesti, tili, maara FROM tilitapahtumat");
+      $stmt->execute();
+
+      // set the resulting array to associative
+      $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
+          echo $v;
+      }
+  }
+  catch(PDOException $e) {
+      echo "Error: " . $e->getMessage();
+  }
+  $conn = null;
+  echo "</table>";
+
+  ?>
 </div><br>
 <div class="nayta_paneeli" onclick="nayta2()">
   <p>Säästötili</p>
