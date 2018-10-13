@@ -6,39 +6,15 @@
   <p>Käyttötili</p>
 </div>
 <div id="piilo_ikkuna">
-  <!-- <table>
-    <tr>
-      <th>Päivämäärä</th>
-      <th>Tilinro.</th>
-      <th>Nimi</th>
-      <th>Viite/viesti</th>
-      <th>Määrä</th>
-    </tr>
-    <tr>
-      <td>10.10.2018</td>
-      <td>FIxx xxxx xxxx xxxx xx</td>
-      <td>Elisa</td>
-      <td>1234 1234</td>
-      <td>-80,00</td>
-    </tr>
-    <tr>
-      <td>5.10.2018</td>
-      <td>FIxx xxxx xxxx xxxx xx</td>
-      <td>K-market</td>
-      <td>pankkikorttimaksu</td>
-      <td>-45,00</td>
-    </tr>
-  </table> -->
+
   <?php
   include '/home/avoin/07/c7paja00/public_html/functions/phpfunc.php';
 
   echo "<table>";
   echo "<tr>
-  <th>Päivämäärä</th>
-  <th>Tapahtuma</th>
-  <th>Viesti</th>
-  <th>Tili</th>
-  <th>Määrä</th>
+  <th>Nimi</th>
+  <th>Tilinumero (IBAN)</th>
+  <th>Saldo</th>
   </tr>";
 
   class TableRows extends RecursiveIteratorIterator {
@@ -58,25 +34,27 @@
           echo "</tr>" . "\n";
       }
   }
-
-
   try {
-      $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-      $stmt = $conn->prepare("SELECT pvm, tapahtuma, viesti, tili, maara FROM tilitapahtumat");
-      $stmt->execute();
+    session_start();
 
-      // set the resulting array to associative
-      $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-      foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-          echo $v;
-      }
-  }
-  catch(PDOException $e) {
-      echo "Error: " . $e->getMessage();
-  }
-  $conn = null;
-  echo "</table>";
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $stmt = $conn->prepare("SELECT tilin_tyyppi as Nimi, IBAN as Tilinumero, tilin_saldo as Saldo from tilit
+      join asiakas_tili on tilit.tiliID=asiakas_tili.tiliID
+      join asiakas on asiakas_tili.asiakasID=asiakas.asiakasID where asiakas.kayttajatunnus=:knimi AND tilit.tilin_tyyppi='kayttotili'");
+    $stmt->bindparam(':knimi', $_SESSION["knimi"]);
+    $stmt->execute();
 
+     // set the resulting array to associative
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
+      echo $v;
+    }
+ }
+ catch(PDOException $e) {
+     echo "Error: " . $e->getMessage();
+ }
+ $conn = null;
+ echo "</table>";
   ?>
 </div><br>
 <div class="nayta_paneeli" onclick="nayta2()">
@@ -84,34 +62,41 @@
 
 </div>
 <div id="piilo_ikkuna2">
-      <table>
-        <tr>
-          <th>Päivämäärä</th>
-          <th>Tilinro.</th>
-          <th>Nimi</th>
-          <th>Viite/viesti</th>
-          <th>Määrä</th>
-        </tr>
-        <tr>
-          <td>10.10.2018</td>
-          <td>FIxx xxxx xxxx xxxx xx</td>
-          <td>Elisa</td>
-          <td>1234 1234</td>
-          <td>-80,00</td>
-        </tr>
-        <tr>
-          <td>5.10.2018</td>
-          <td>FIxx xxxx xxxx xxxx xx</td>
-          <td>K-market</td>
-          <td>pankkikorttimaksu</td>
-          <td>-45,00</td>
-        </tr>
-      </table>
+  <?php
+
+  echo "<table>";
+  echo "<tr>
+  <th>Nimi</th>
+  <th>Tilinumero (IBAN)</th>
+  <th>Saldo</th>
+  </tr>";
+
+    try {
+
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $stmt = $conn->prepare("SELECT tilin_tyyppi as Nimi, IBAN as Tilinumero, tilin_saldo as Saldo from tilit
+      join asiakas_tili on tilit.tiliID=asiakas_tili.tiliID
+      join asiakas on asiakas_tili.asiakasID=asiakas.asiakasID where asiakas.kayttajatunnus=:knimi AND tilit.tilin_tyyppi='saastotili'");
+    $stmt->bindparam(':knimi', $_SESSION["knimi"]);
+    $stmt->execute();
+
+     // set the resulting array to associative
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
+      echo $v;
+    }
+ }
+ catch(PDOException $e) {
+     echo "Error: " . $e->getMessage();
+ }
+ $conn = null;
+ echo "</table>";
+  ?>
 </div><br>
-<div class="nayta_paneeli" onclick="nayta3()">
+<!-- <div class="nayta_paneeli" onclick="nayta3()">
   <p>ASP-tili</p>
-</div>
-<div id="piilo_ikkuna3">
+</div> -->
+<!-- <div id="piilo_ikkuna3">
   <table>
     <tr>
       <th>Päivämäärä</th>
@@ -136,4 +121,4 @@
     </tr>
   </table>
 </div>
-</div>
+</div>-->
