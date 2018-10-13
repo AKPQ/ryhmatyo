@@ -19,14 +19,25 @@
           <b>AKPQ - Älykkäät rahastajat</b>
         </div>
         <div class="oikeakulma">
-          Tervetuloa<br> Asiakas
+          <?php
+           //kirjautuminen onnistunut
+           session_start();
+           if(isset($_SESSION["knimi"]))
+           {
+                echo '<b>Tervetuloa <br> '.$_SESSION["knimi"].'</b>';
+           }
+           else
+           {
+                header("location:index.html");
+           }
+         ?>
         </div>
       </div>
 
     </div>
     <div id="menu">
       <ul>
-        <li><a onclick="loadXMLDoc('asiakas_etusivu.html')">Etusivu</a></li>
+        <li><a onclick="loadXMLDoc('asiakas_tilit.php')">Etusivu</a></li>
         <li><a onclick="loadXMLDoc('tilit.php')">Tilit</a></li>
         <li><a onclick="loadXMLDoc('maksut.html')">Maksut</a></li><br>
         <li><a onclick="loadXMLDoc('kortit.html')">Korttien hallinta</a></li>

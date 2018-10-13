@@ -26,20 +26,18 @@
         </div> -->
       </div>
     </div>
-    <div id="menu"
-    <form action="action_page.php">
+    <div id="menu">
+    <form action="functions/phpKirjaudu.php" method="post">
         <div class="container">
           <label for="knimi"><b>Käyttäjänimi</b></label>
           <input type="text" placeholder="Syötä käyttäjänimi" name="knimi" required>
 
-          <label for="salas"><b>Salasana</b></label>
+          <label for="ssana"><b>Salasana</b></label>
           <input type="password" placeholder="Syötä salasana" name="ssana" required>
 
-          <button type="submit">Kirjaudu</button>
+          <button type="submit" name="kirjaudu">Kirjaudu</button>
         </div>
-
-
-    </form>
+      </form>
       <ul>
         <li><a onclick="loadXMLDoc('rekisteroidy.html')">Rekisteröidy</a></li>
         <li><a href="asiakas_etusivu.html">asiakas</a></li>

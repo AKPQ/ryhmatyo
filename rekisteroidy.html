@@ -1,30 +1,22 @@
-<form action="functions/phpform.php" style="border:1px solid #ccc" method="post">
+<form action="functions/phpRekisteroidy.php" style="border:1px solid #ccc" method="post">
   <div class="uusi_as">
     <h2>Rekisteröidy asiakkaaksi</h2>
     <p>Täytä allaolevat tiedot rekisteröityäksesi asiakkaaksemme.</p>
     <hr>
 
-    <label for="etunimi"><b>Etunimi</b></label>
-    <input type="text" placeholder="Syötä etunimi" name="etunimi" required>
-    <span class="error">* <?php echo $enimiErr;?></span>
+    <label for="nimi"><b>Nimi</b></label>
+    <input type="text" placeholder="Syötä nimesi" name="nimi" required>
+    <span class="error"><?php echo $nimiErr;?></span>
 
-    <label for="sukunimi"><b>Sukunimi</b></label>
-    <input type="text" placeholder="Syötä sukunimi" name="sukunimi" required>
-    <span class="error">* <?php echo $snimiErr;?></span>
-
-    <label for="hetu"><b>Henkilötunnus</b></label>
-    <input type="text" placeholder="Syötä henkilötunnus" name="hetu" required>
-    <span class="error">* <?php echo $hetuErr;?></span>
+    <label for="kayttaja"><b>Käyttäjänimi</b></label>
+    <input type="text" placeholder="Syötä käyttänänimi" name="kayttaja" required>
+    <span class="error"><?php echo $kayttajaErr;?></span>
 
     <label for="psw"><b>Salasana</b></label>
     <input type="password" placeholder="Syötä salasana" name="psw" required>
-    <span class="error">* <?php echo $pswErr;?></span>
-
-    </p>
-
-    <div class="clearfix">
-      <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" class="signupbtn">Sign Up</button>
+    <span class="error"><?php echo $pswErr;?></span>
+    <div>
+      <button type="submit" target="_blank">Rekisteröidy</button>
     </div>
   </div>
 </form>
