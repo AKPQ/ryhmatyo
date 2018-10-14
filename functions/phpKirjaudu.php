@@ -1,5 +1,5 @@
 <?php
-include '/home/avoin/07/c7paja00/public_html/functions/phpfunc.php';
+include 'phpfunc.php';
 session_start();
 try {
       $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

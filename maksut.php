@@ -1,5 +1,10 @@
-Maksut
-<form action="maksut.php">
+<?php
+include 'functions/phpfunc.php';
+session_start();
+?>
+
+<h3>Maksut</h3>
+<form action="functions/luoMaksu.php" method="post">
   <table>
     <tr>
       <td><label for="tililta">Tililtä</label></td>
@@ -39,6 +44,46 @@ Maksut
     <input type="number" placeholder=" #" name="kk_maara" size="4"> kertaa (ensimmäinen kerta mukaanlukien)<br>
     <input type="radio" name="maksukerta" value="kk_toist"> kuukausittain toistaiseksi<br>
 
+  <div class="oikeakohdistus">
+    <input type="submit" name="" value="Hyväksy">
+  </div>
 
 
 </form>
+
+<h3>Viimeisimmät maksut</h3>
+<table>
+  <tr>
+    <td>Tilinumero</td>
+    <td>Päiväys</td>
+    <td>Määrä</td>
+  </tr>
+  <?php try {
+
+    //Yhdistetään tietokantaan
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // Haetaan tiedot
+    $stmt = $conn->prepare("select * from tilitapahtumat
+        join asiakas_tili on tilitapahtumat.tiliID=asiakas_tili.tiliID
+        join asiakas on asiakas_tili.asiakasID=asiakas.asiakasID
+        where kayttajatunnus=:knimi");
+
+      $stmt->bindparam(':knimi', $_SESSION["knimi"]);
+      $stmt->execute();
+
+      // tulostetaan rivit
+      $result = $stmt->fetchAll();
+      foreach ($result as $key => $value) {
+        echo "<tr>";
+        echo "<td>" . $value["tilinumero"] . "</td>";
+        echo "<td>" . $value["PVM"] . "</td>";
+        echo "<td>" . $value["maksun_maara"] . "</td>";
+        echo "</tr>";
+      }
+    }
+    catch(PDOException $e) {
+      echo "Error: " . $e->getMessage();
+    }
+  ?>
+
+</table>

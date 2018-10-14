@@ -39,7 +39,7 @@
       <ul>
         <li><a onclick="loadXMLDoc('asiakas_tilit.php')">Etusivu</a></li>
         <li><a onclick="loadXMLDoc('tilit.php')">Tilit</a></li>
-        <li><a onclick="loadXMLDoc('maksut.html')">Maksut</a></li><br>
+        <li><a onclick="loadXMLDoc('maksut.php')">Maksut</a></li><br>
         <li><a onclick="loadXMLDoc('kortit.html')">Korttien hallinta</a></li>
         <li><a href="logout.php">Kirjaudu ulos</a></li>
       </ul>
@@ -57,7 +57,7 @@
     </div>
     <div id="piilo_ikkuna">
       <?php
-      include '/home/avoin/07/c7paja00/public_html/functions/phpfunc.php';
+      include 'functions/phpfunc.php';
 
       echo "<table>";
       echo "<tr>

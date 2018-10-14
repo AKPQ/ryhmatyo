@@ -9,7 +9,7 @@
 </div>
 <div id="piilo_ikkuna">
   <?php
-  include '/home/avoin/07/c7paja00/public_html/functions/phpfunc.php';
+  include 'functions/phpfunc.php';
   session_start();
   echo "<table>";
   echo "<tr>
