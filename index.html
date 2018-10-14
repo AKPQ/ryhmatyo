@@ -28,22 +28,20 @@
     </div>
     <div id="menu">
     <form action="functions/phpKirjaudu.php" method="post">
-        <div class="container">
           <label for="knimi"><b>Käyttäjänimi</b></label>
           <input type="text" placeholder="Syötä käyttäjänimi" name="knimi" required>
 
           <label for="ssana"><b>Salasana</b></label>
           <input type="password" placeholder="Syötä salasana" name="ssana" required>
+          <div class="palkki">
+            <button type="submit" name="kirjaudu" class="kirjaudubtn">Kirjaudu</button>
+          </div>
 
-          <button type="submit" name="kirjaudu">Kirjaudu</button>
-        </div>
+          <div class="palkki">
+            <button  onclick="loadXMLDoc('rekisteroidy.html')" class="kirjaudubtn">Rekisteröidy</button>
+          </div>
+
       </form>
-      <ul>
-        <li><a onclick="loadXMLDoc('rekisteroidy.html')">Rekisteröidy</a></li>
-        <li><a href="asiakas_etusivu.html">asiakas</a></li>
-        <li><a href="functions\phpfunc.php">PHP</a></li>
-
-      </ul>
     </div>
 
     <div id="content">

@@ -1,4 +1,4 @@
-<div class="content_ylin">
+<div class="otsikko">
   <h2>Tervetuloa asioimaan pankkiimme</h2>
   <p> Etusivullasi näet tilijesi yhteenvedon. Pääset näkemään tiliesi tarkempia tilitapahtumia klikkaamalla tilin nimeä.
   Tilisiirtoja tai maksuja pääset suorittamaan Maksut-sivulta. Korttiesi tiedot näet Kortit-sivulta.

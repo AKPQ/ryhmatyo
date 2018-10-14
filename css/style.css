@@ -94,6 +94,7 @@ align: center;
 }
 .otsikko{
   text-align: center;
+  font-size: 20px;
 }
 
 .nayta_paneeli{
@@ -129,7 +130,7 @@ align: center;
   display: block;
 }
 #piilo_ikkuna2{
-  display: none;
+  display: block;
 }
 #piilo_ikkuna3{
   display: none;
@@ -180,8 +181,8 @@ input[type=text]:focus, input[type=password]:focus {
 button {
     background-color: #555;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
+    padding: 10px 10px;
+
     border: none;
     cursor: pointer;
     width: 100%;
@@ -191,12 +192,19 @@ button:hover {
     opacity: 0.8;
 }
 .cancelbtn {
-    padding: 14px 20px;
     background-color: #AAA;
 }
 .cancelbtn, .signupbtn {
-  float: left;
-  width: 50%;
+  margin: 10px;
+  float: right;
+  max-width: 40%;
+}
+.kirjaudubtn {
+  max-width: 100%;
+}
+.palkki{
+  width: 100%;
+  margin-top: 10px;
 }
 .clearfix::after {
     content: "";
@@ -210,7 +218,12 @@ button:hover {
 #footer{
 
 }
-.oikeakohdistus {
+.hyvaksy_maksu{
+  max-width: 80%;
+  margin: 10px;
+}
+#oikeakohdistus {
   width: 100%;
   text-align: right;
+  height: 60px;
 }

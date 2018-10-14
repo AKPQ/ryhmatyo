@@ -7,118 +7,100 @@
 </div>
 <div id="piilo_ikkuna">
 
-  <?php
-  include 'functions/phpfunc.php';
-
-  echo "<table>";
-  echo "<tr>
-  <th>Nimi</th>
-  <th>Tilinumero (IBAN)</th>
-  <th>Saldo</th>
-  </tr>";
-
-  class TableRows extends RecursiveIteratorIterator {
-      function __construct($it) {
-          parent::__construct($it, self::LEAVES_ONLY);
-      }
-
-      function current() {
-          return "<td>" . parent::current(). "</td>";
-      }
-
-      function beginChildren() {
-          echo "<tr>";
-      }
-
-      function endChildren() {
-          echo "</tr>" . "\n";
-      }
-  }
-  try {
+  <div>
+  <table>
+    <tr>
+      <th>Tilinumero</th>
+      <th>Tapahtuma</th>
+      <th>Päiväys</th>
+      <th>Määrä</th>
+    </tr>
+    <?php
+    include 'functions/phpfunc.php';
     session_start();
+    try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $stmt = $conn->prepare("SELECT tilin_tyyppi as Nimi, IBAN as Tilinumero, tilin_saldo as Saldo from tilit
-      join asiakas_tili on tilit.tiliID=asiakas_tili.tiliID
-      join asiakas on asiakas_tili.asiakasID=asiakas.asiakasID where asiakas.kayttajatunnus=:knimi AND tilit.tilin_tyyppi='kayttotili'");
-    $stmt->bindparam(':knimi', $_SESSION["knimi"]);
-    $stmt->execute();
+      //Yhdistetään tietokantaan
+      $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+      // Haetaan tiedot
+      $stmt = $conn->prepare("SELECT * from tilitapahtumat
+          join tilit on tilit.tiliID=tilitapahtumat.tiliID
+          join asiakas_tili on tilit.tiliID=asiakas_tili.tiliID
+          join asiakas on asiakas_tili.asiakasID=asiakas.asiakasID
+          where asiakas.kayttajatunnus=:knimi AND tilit.tilin_tyyppi='kayttotili'");
 
-     // set the resulting array to associative
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-      echo $v;
-    }
- }
- catch(PDOException $e) {
-     echo "Error: " . $e->getMessage();
- }
- $conn = null;
- echo "</table>";
-  ?>
-</div><br>
+        $stmt->bindparam(':knimi', $_SESSION["knimi"]);
+        $stmt->execute();
+
+        // tulostetaan rivit
+        $result = $stmt->fetchAll();
+        foreach ($result as $key => $value) {
+          echo "<tr>";
+          echo "<td>" . $value["tilinumero"] . "</td>";
+          echo "<td>" . $value["tapahtuma"] . "</td>";
+          echo "<td>" . $value["PVM"] . "</td>";
+          echo "<td>" . $value["maksun_maara"] . "</td>";
+          echo "</tr>";
+        }
+      }
+      catch(PDOException $e) {
+        echo "Error: " . $e->getMessage();
+      }
+    ?>
+
+  </table>
+  </div><br>
+</div>
 <div class="nayta_paneeli" onclick="nayta2()">
   <p>Säästötili</p>
 
 </div>
 <div id="piilo_ikkuna2">
+
+
+  <table>
+  <tr>
+    <th>Tilinumero</th>
+    <th>Tapahtuma</th>
+    <th>Päiväys</th>
+    <th>Määrä</th>
+  </tr>
+
   <?php
+  try {
 
-  echo "<table>";
-  echo "<tr>
-  <th>Nimi</th>
-  <th>Tilinumero (IBAN)</th>
-  <th>Saldo</th>
-  </tr>";
-
-    try {
-
+    //Yhdistetään tietokantaan
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    $stmt = $conn->prepare("SELECT tilin_tyyppi as Nimi, IBAN as Tilinumero, tilin_saldo as Saldo from tilit
-      join asiakas_tili on tilit.tiliID=asiakas_tili.tiliID
-      join asiakas on asiakas_tili.asiakasID=asiakas.asiakasID where asiakas.kayttajatunnus=:knimi AND tilit.tilin_tyyppi='saastotili'");
-    $stmt->bindparam(':knimi', $_SESSION["knimi"]);
-    $stmt->execute();
+    // Haetaan tiedot
+    $stmt = $conn->prepare("SELECT * from tilitapahtumat
+        join tilit on tilit.tiliID=tilitapahtumat.tiliID
+        join asiakas_tili on tilit.tiliID=asiakas_tili.tiliID
+        join asiakas on asiakas_tili.asiakasID=asiakas.asiakasID
+        where asiakas.kayttajatunnus=:knimi AND tilit.tilin_tyyppi='saastotili'");
 
-     // set the resulting array to associative
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-      echo $v;
+      $stmt->bindparam(':knimi', $_SESSION["knimi"]);
+      $stmt->execute();
+
+      // tulostetaan rivit
+      $result = $stmt->fetchAll();
+      foreach ($result as $key => $value) {
+        echo "<tr>";
+        echo "<td>" . $value["tilinumero"] . "</td>";
+        echo "<td>" . $value["tapahtuma"] . "</td>";
+        echo "<td>" . $value["PVM"] . "</td>";
+        echo "<td>" . $value["maksun_maara"] . "</td>";
+        echo "</tr>";
+      }
     }
- }
- catch(PDOException $e) {
-     echo "Error: " . $e->getMessage();
- }
+    catch(PDOException $e) {
+      echo "Error: " . $e->getMessage();
+    }
  $conn = null;
- echo "</table>";
-  ?>
+
+   ?>
+ </table>
+
 </div><br>
 <!-- <div class="nayta_paneeli" onclick="nayta3()">
-  <p>ASP-tili</p>
-</div> -->
-<!-- <div id="piilo_ikkuna3">
-  <table>
-    <tr>
-      <th>Päivämäärä</th>
-      <th>Tilinro.</th>
-      <th>Nimi</th>
-      <th>Viite/viesti</th>
-      <th>Määrä</th>
-    </tr>
-    <tr>
-      <td>10.10.2018</td>
-      <td>FIxx xxxx xxxx xxxx xx</td>
-      <td>Elisa</td>
-      <td>1234 1234</td>
-      <td>-80,00</td>
-    </tr>
-    <tr>
-      <td>5.10.2018</td>
-      <td>FIxx xxxx xxxx xxxx xx</td>
-      <td>K-market</td>
-      <td>pankkikorttimaksu</td>
-      <td>-45,00</td>
-    </tr>
-  </table>
-</div>
+
 </div>-->

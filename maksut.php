@@ -3,18 +3,21 @@ include 'functions/phpfunc.php';
 session_start();
 ?>
 
-<h3>Maksut</h3>
-<form action="functions/luoMaksu.php" method="post">
+<div class="otsikko">
+  <h3>Maksujen suoritus</h3>
+</div>
+
+<form name="maksut" action="functions/luoMaksu.php" method="post">
   <table>
     <tr>
       <td><label for="tililta">Tililtä</label></td>
-      <td><select name="tililta" required>
+      <td><select name="tililta">
         <option value="Kayttotili" selected>Käyttötili</option>
         <option value="saastotili">Säästötili</option>
         <option value="asptili">ASP-tili</option>
       </td>
       <td><label for="saaja">Saaja</label></td>
-      <td><input type="text" placeholder="Saajan nimi" name="saaja"></td required>
+      <td><input type="text" placeholder="Saajan nimi" name="saaja" required></td>
     </tr>
     <tr>
       <td><label for="maksupohja">maksupohjan nimi</label></td>
@@ -28,7 +31,7 @@ session_start();
     </tr>
     <tr>
       <td><label for="maara">Määrä</label></td>
-      <td><input type="number" placeholder="Määrä" name="maara"></td>
+      <td><input type="text" placeholder="Määrä" name="maara"></td>
       <td><label for="viesti">Viesti</label></td>
       <td><input type="text" placeholder="Viesti" name="viesti"></td>
     </tr>
@@ -43,18 +46,22 @@ session_start();
     <input type="radio" name="maksukerta" value="kk"> Kuukausittain
     <input type="number" placeholder=" #" name="kk_maara" size="4"> kertaa (ensimmäinen kerta mukaanlukien)<br>
     <input type="radio" name="maksukerta" value="kk_toist"> kuukausittain toistaiseksi<br>
+  <div id="oikeakohdistus">
+    <button type="submit" class="signupbtn" name="hyvaksy">Hyväksy</button>
+    <button type="reset" class="cancelbtn" name="tyhjenna">Tyhjennä</button>
 
-  <div class="oikeakohdistus">
-    <input type="submit" name="" value="Hyväksy">
   </div>
 
 
 </form>
-
+<div class="otsikko">
 <h3>Viimeisimmät maksut</h3>
+</div>
+<div>
 <table>
   <tr>
     <td>Tilinumero</td>
+    <td>Tapahtuma</td>
     <td>Päiväys</td>
     <td>Määrä</td>
   </tr>
@@ -76,6 +83,7 @@ session_start();
       foreach ($result as $key => $value) {
         echo "<tr>";
         echo "<td>" . $value["tilinumero"] . "</td>";
+        echo "<td>" . $value["tapahtuma"] . "</td>";
         echo "<td>" . $value["PVM"] . "</td>";
         echo "<td>" . $value["maksun_maara"] . "</td>";
         echo "</tr>";
@@ -87,3 +95,4 @@ session_start();
   ?>
 
 </table>
+</div>
