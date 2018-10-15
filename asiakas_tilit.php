@@ -1,7 +1,8 @@
 <div class="otsikko">
   <h2>Tervetuloa asioimaan pankkiimme</h2>
-  <p> Etusivullasi näet tilijesi yhteenvedon. Pääset näkemään tiliesi tarkempia tilitapahtumia klikkaamalla tilin nimeä.
-  Tilisiirtoja tai maksuja pääset suorittamaan Maksut-sivulta. Korttiesi tiedot näet Kortit-sivulta.
+  <p> Etusivullanne näette tilijenne yhteenvedon. Pääsette näkemään tilijenne tarkempia
+    tilitapahtumia klikkaamalla tilit-linkkiä vasemmalta. Tilisiirtoja tai maksuja pääsette
+    suorittamaan Maksut-sivulta. Korttienne tiedot näette Kortit-sivulta.
   </p>
 </div>
 <div class="nayta_paneeli" onclick="nayta()">
@@ -36,7 +37,7 @@
     //Yhdistetään tietokantaan
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // Haetaan tiedot
-    $stmt = $conn->prepare("SELECT tilin_tyyppi as Nimi, IBAN as Tilinumero, tilin_saldo as Saldo from tilit
+    $stmt = $conn->prepare("SELECT tilin_tyyppi, IBAN, tilin_saldo from tilit
       join asiakas_tili on tilit.tiliID=asiakas_tili.tiliID
       join asiakas on asiakas_tili.asiakasID=asiakas.asiakasID where asiakas.kayttajatunnus=:knimi");
     $stmt->bindparam(':knimi', $_SESSION["knimi"]);
